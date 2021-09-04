@@ -33,14 +33,15 @@ class Button():
         return action
 
 
-
+config_button = pygame.image.load('option.png').convert_alpha()
 play_img = pygame.image.load('play.png').convert_alpha()
 exit_img = pygame.image.load('exit.png').convert_alpha()
 logo = pygame.image.load('pmlogo.png').convert_alpha()
 
 logo_button=Button(9,20,logo,0.42)
 play_button=Button(120,200,play_img,0.5)
-exit_button=Button(140,300,exit_img,0.5)
+config=Button(135,265,config_button,0.5)
+exit_button=Button(140,340,exit_img,0.5)
 
 game_start=False
 flag=True
@@ -55,6 +56,12 @@ while flag:
     text_surface, rect = GAME_FONT2.render("Christian Basco s5252422 ", (230, 97, 29))
     screen.blit(text_surface, (20, 550))
 
+    text_surface, rect = GAME_FONT2.render("7805ICT", (230, 97, 29))
+    screen.blit(text_surface, (20, 500))
+
+    config.draw()
+       # game_start = True
+        #flag = True
     if play_button.draw():
         game_start = True
         flag = False

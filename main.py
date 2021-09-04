@@ -39,16 +39,16 @@ exit_img = pygame.image.load('exit.png').convert_alpha()
 logo = pygame.image.load('pmlogo.png').convert_alpha()
 
 logo_button=Button(9,20,logo,0.42)
-play_button=Button(120,200,play_img,0.5)
-config=Button(135,265,config_button,0.5)
-exit_button=Button(140,340,exit_img,0.5)
+play_button=Button(120,180,play_img,0.5)
+config=Button(135,255,config_button,0.5)
+exit_button=Button(141,340,exit_img,0.5)
 
 game_start=False
 flag=True
 game = GameController()
 while flag:
     text_surface, rect = GAME_FONT.render("Created by: ", (230, 97, 29))
-    screen.blit(text_surface, (20, 470))
+    screen.blit(text_surface, (20, 490))
 
     text_surface, rect = GAME_FONT1.render("Prashanna Malla s5235405 ", (230, 97, 29))
     screen.blit(text_surface, (20, 520))
@@ -57,7 +57,7 @@ while flag:
     screen.blit(text_surface, (20, 550))
 
     text_surface, rect = GAME_FONT2.render("7805ICT", (230, 97, 29))
-    screen.blit(text_surface, (20, 500))
+    screen.blit(text_surface, (370, 555))
 
     config.draw()
        # game_start = True

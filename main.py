@@ -37,11 +37,14 @@ config_button = pygame.image.load('option.png').convert_alpha()
 play_img = pygame.image.load('play.png').convert_alpha()
 exit_img = pygame.image.load('exit.png').convert_alpha()
 logo = pygame.image.load('pmlogo.png').convert_alpha()
+random = pygame.image.load('random.png').convert_alpha()
 
 logo_button=Button(9,20,logo,0.42)
-play_button=Button(120,180,play_img,0.5)
-config=Button(135,255,config_button,0.5)
-exit_button=Button(141,340,exit_img,0.5)
+play_button=Button(120,140,play_img,0.5)
+random_button=Button(125,225,random,0.5)
+config=Button(135,290,config_button,0.5)
+exit_button=Button(141,375,exit_img,0.5)
+
 
 game_start=False
 flag=True
@@ -70,14 +73,15 @@ while flag:
         game_start = False
         flag = False
     if game_start == True:
-
         game.startGame()
-
         while True:
             game.update(screen)
+    if random_button.draw():
+    #     run('randommaze.py', lines = 0-163)
+    #     pygame.quit()
+        import randommaze
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             flag = False
     pygame.display.update()
-pygame.quit()

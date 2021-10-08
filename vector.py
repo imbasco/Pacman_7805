@@ -1,26 +1,10 @@
-from math import sqrt
-
+import math
 
 class Vector2(object):
     def __init__(self, x=0, y=0):
         self.x = x
         self.y = y
-        self.thresh = 0.00001
-
-    def __str__(self):
-        return "<" + str(self.x) + ", " + str(self.y) + ">"
-
-    def asTuple(self):
-        return self.x, self.y
-
-    def asInt(self):
-        return int(self.x), int(self.y)
-
-    def magnitudeSquared(self):
-        return self.x ** 2 + self.y ** 2
-
-    def magnitude(self):
-        return sqrt(self.magnitudeSquared())
+        self.thresh = 0.000001
 
     def __add__(self, other):
         return Vector2(self.x + other.x, self.y + other.y)
@@ -48,17 +32,20 @@ class Vector2(object):
                 return True
         return False
 
-    def __hash__(self):
-        return id(self)
+    def magnitudeSquared(self):
+        return self.x**2 + self.y**2
+
+    def magnitude(self):
+        return math.sqrt(self.magnitudeSquared())
 
     def copy(self):
         return Vector2(self.x, self.y)
 
-    def dot(self, other):
-        return self.x * other.x + self.y * other.y
+    def asTuple(self):
+        return self.x, self.y
 
-    def normalize(self):
-        mag = self.magnitude()
-        if mag != 0:
-            return self.__div__(mag)
-        return None
+    def asInt(self):
+        return int(self.x), int(self.y)
+
+    def __str__(self):
+        return "<"+str(self.x)+", "+str(self.y)+">"

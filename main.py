@@ -2,12 +2,15 @@
 from run import *
 import pygame
 import pygame.freetype
+from pygame import mixer
 pygame.init()
 screen = pygame.display.set_mode(SCREENSIZE)
 pygame.display.set_caption('PacMan - 7805ICT Principles of Software Engineering')
 GAME_FONT = pygame.freetype.Font("animo.ttf", 18)
-GAME_FONT1 = pygame.freetype.Font("animo.ttf", 18)
+GAME_FONT1 = pygame.freetype.Font ("animo.ttf", 18)
 GAME_FONT2 = pygame.freetype.Font("animo.ttf", 18)
+mixer.music.load('pacman_beginning.wav')
+mixer.music.play(-1)
 
 
 class Button():
@@ -75,7 +78,7 @@ while flag:
     if game_start == True:
         game.startGame()
         while True:
-            game.update(screen)
+            game.update()
     if random_button.draw():
     #     run('randommaze.py', lines = 0-163)
     #     pygame.quit()
